@@ -1,0 +1,49 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>agregarActividad</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content padding>
+  <ion-list>
+
+    <ion-item>
+      <ion-label floating>Nombre</ion-label>
+      <ion-input type="text" [(ngModel)]="nombre_activi"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Fecha</ion-label>
+      <ion-input type="date" [(ngModel)]="fecha_activi"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Numero de Jornales</ion-label>
+      <ion-input type="text"  [(ngModel)]="num_jornales"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>Estado</ion-label>
+        <ion-checkbox [(ngModel)]="estado" color="dark"></ion-checkbox>
+      </ion-item>
+
+
+    <ion-item>
+      <ion-label floating>Descripcion</ion-label>
+      <ion-input type="text" [(ngModel)]="descripcion_activi"></ion-input>
+    </ion-item>
+
+    <ion-card *ngIf="error">
+        <ion-card-header color="danger">
+          Debe llenar todos los campos
+        </ion-card-header>
+      </ion-card>
+
+    <button ion-button color="secondary" block (click)="guardar()">Guardar</button>
+  </ion-list>
+</ion-content>

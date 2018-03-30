@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>DESCRIPCION</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+
+<ion-content padding>
+  <ion-item-group *ngFor="let f of descripcion">
+    <ion-item-divider color="light">
+      <h1>{{f.nombre_finca | uppercase}}</h1>
+    </ion-item-divider>
+
+    <ion-item>
+      Ubicacion: {{f.ubicacion_finca}}
+    </ion-item>
+    <ion-item>
+      Descripcion: {{f.descripcion_finca}}
+    </ion-item>
+    <ion-item>
+      trabajador: {{f.trabajador_encargado}}
+    </ion-item>
+      <button ion-button color="secondary" block (click)="editar()" item-right>Editar</button>
+  </ion-item-group>
+</ion-content>
+

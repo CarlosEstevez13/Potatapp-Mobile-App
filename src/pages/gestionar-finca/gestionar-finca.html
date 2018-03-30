@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>GESTIONAR FINCA</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-item-group>
+    <ion-item-divider color="light">
+      <h1>Fincas</h1>
+    </ion-item-divider>
+    <ion-item *ngFor="let finca of fincas">
+      {{finca.nombre_finca | uppercase}}
+      <button ion-button outline item-right (click)="irActividades(finca.id_finca)">Actividades</button>
+      <button ion-button color="secondary" (click)="irDescripcion(finca.id_finca)" item-right>Ver</button>
+    </ion-item>
+  </ion-item-group>
+
+  <ion-fab right bottom>
+    <button ion-fab color="primary" (click)="irAgregar()">
+      <ion-icon ios="ios-add" md="md-add"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

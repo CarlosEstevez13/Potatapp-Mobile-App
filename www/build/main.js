@@ -1,15 +1,93 @@
-webpackJsonp([4],{
+webpackJsonp([12],{
+
+/***/ 100:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AgregarActividadPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_finca_finca__ = __webpack_require__(30);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var AgregarActividadPage = /** @class */ (function () {
+    function AgregarActividadPage(navCtrl, navParams, _fincaService) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this._fincaService = _fincaService;
+        this.error = false;
+    }
+    AgregarActividadPage.prototype.guardar = function () {
+        var _this = this;
+        if (this.estado === true) {
+            console.log('if 1');
+            this.estado_activi = '1';
+        }
+        else {
+            console.log('if 0');
+            this.estado_activi = '0';
+        }
+        this.descripcion = {
+            nombre_activi: this.nombre_activi,
+            descripcion_activi: this.descripcion_activi,
+            id_finca: this._fincaService.getIdFinca(),
+            estado_activi: this.estado_activi,
+            fecha_activi: this.fecha_activi,
+            num_jornales: this.num_jornales
+        };
+        console.log(this.descripcion);
+        this._fincaService.postActividad(this.descripcion).subscribe(function (res) {
+            console.log(res);
+            if (!res) {
+                _this.error = true;
+            }
+            else {
+                _this.navCtrl.pop();
+            }
+        }, function (e) {
+            if (e) {
+                _this.error = true;
+            }
+            console.log(e);
+        });
+    };
+    AgregarActividadPage.prototype.ionViewDidLoad = function () {
+        console.log("ionViewDidLoad AgregarActividadPage");
+    };
+    AgregarActividadPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: "page-agregar-actividad",template:/*ion-inline-start:"/home/carlosestevez/U/software2/potatapp/potatapp_v2/myApp/src/pages/agregar-actividad/agregar-actividad.html"*/'\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>agregarActividad</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n  <ion-list>\n\n    <ion-item>\n      <ion-label floating>Nombre</ion-label>\n      <ion-input type="text" [(ngModel)]="nombre_activi"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Fecha</ion-label>\n      <ion-input type="date" [(ngModel)]="fecha_activi"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Numero de Jornales</ion-label>\n      <ion-input type="text"  [(ngModel)]="num_jornales"></ion-input>\n    </ion-item>\n\n    <ion-item>\n        <ion-label>Estado</ion-label>\n        <ion-checkbox [(ngModel)]="estado" color="dark"></ion-checkbox>\n      </ion-item>\n\n\n    <ion-item>\n      <ion-label floating>Descripcion</ion-label>\n      <ion-input type="text" [(ngModel)]="descripcion_activi"></ion-input>\n    </ion-item>\n\n    <ion-card *ngIf="error">\n        <ion-card-header color="danger">\n          Debe llenar todos los campos\n        </ion-card-header>\n      </ion-card>\n\n    <button ion-button color="secondary" block (click)="guardar()">Guardar</button>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/home/carlosestevez/U/software2/potatapp/potatapp_v2/myApp/src/pages/agregar-actividad/agregar-actividad.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_finca_finca__["a" /* FincaProvider */]])
+    ], AgregarActividadPage);
+    return AgregarActividadPage;
+}());
+
+//# sourceMappingURL=agregar-actividad.js.map
+
+/***/ }),
 
 /***/ 101:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AgregarPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DescripcionActividadPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__clases_lista_item__ = __webpack_require__(250);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__clases_listas__ = __webpack_require__(251);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_lista_deseos_lista_deseos__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_finca_finca__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__editar_actividad_editar_actividad__ = __webpack_require__(102);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -23,60 +101,54 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
-var AgregarPage = (function () {
-    function AgregarPage(navCtrl, navParams, _listaDeseos, alertCtrl) {
+/**
+ * Generated class for the DescripcionActividadPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var DescripcionActividadPage = /** @class */ (function () {
+    function DescripcionActividadPage(navCtrl, navParams, _fincaService) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this._listaDeseos = _listaDeseos;
-        this.alertCtrl = alertCtrl;
-        this.nombreLista = '';
-        this.nombreItem = '';
-        this.items = [];
+        this._fincaService = _fincaService;
+        this.getDescripcion();
     }
-    AgregarPage.prototype.agregarItem = function () {
-        if (this.nombreItem.length == 0) {
-            return;
-        }
-        var item = new __WEBPACK_IMPORTED_MODULE_2__clases_lista_item__["a" /* ListaItem */]();
-        item.nombre = this.nombreItem;
-        this.items.push(item);
-        this.nombreItem = "";
+    DescripcionActividadPage.prototype.ngOnChanges = function () {
+        console.log('algo cambio');
     };
-    AgregarPage.prototype.eliminarItem = function (index) {
-        this.items.splice(index, 1);
+    DescripcionActividadPage.prototype.getDescripcion = function () {
+        var _this = this;
+        this._fincaService.getActividadDesc().subscribe(function (res) {
+            _this.descripcion = res.result;
+            console.log(_this.descripcion);
+        }, function (e) {
+            console.log(e);
+        });
+        return this.descripcion;
     };
-    AgregarPage.prototype.agregarLista = function () {
-        if (this.nombreLista.length == 0) {
-            var alert_1 = this.alertCtrl.create({
-                title: 'Nombre de la lista',
-                subTitle: 'El nombre de la lista es necesario!',
-                buttons: ['OK']
-            });
-            alert_1.present();
-            return;
-        }
-        else {
-            var lista = new __WEBPACK_IMPORTED_MODULE_3__clases_listas__["a" /* Lista */](this.nombreLista);
-            lista.items = this.items;
-            this._listaDeseos.agregarLista(lista);
-            this.navCtrl.pop();
-        }
+    DescripcionActividadPage.prototype.editar = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__editar_actividad_editar_actividad__["a" /* EditarActividadPage */]);
+        /* this.navCtrl.setRoot(EditarActividadPage); */
     };
-    AgregarPage = __decorate([
+    DescripcionActividadPage.prototype.ionViewDidEnter = function () {
+        this.getDescripcion();
+    };
+    DescripcionActividadPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad DescripcionActividadPage');
+    };
+    DescripcionActividadPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-agregar',template:/*ion-inline-start:"/home/carlosestevez/curso-angular4/Aplicaciones/5.Deseos/src/pages/agregar/agregar.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n    <ion-title>{{nombreLista | placeholder:\'Nueva Lista\'}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-card>\n    <ion-card-header>\n      <ion-item>\n        <ion-label floating>Nombre de la lista:</ion-label>\n        <ion-input type="text" [(ngModel)]="nombreLista"></ion-input>\n      </ion-item>        \n    </ion-card-header>\n    <ion-card-content>\n\n        <ion-item>\n            <ion-label floating>Item:</ion-label>\n            <ion-input (keyup.enter)=\'agregar()\' type="text" [(ngModel)]="nombreItem"></ion-input>\n          </ion-item> \n          <button ion-button class="button-block" (click)="agregarItem()">Agregar</button>\n    </ion-card-content>\n  </ion-card>\n\n  <ion-card *ngIf="items.length != 0">\n    <!-- Items -->\n    <ion-card-header>\n      <h3>Items Agregados</h3>\n    </ion-card-header>\n\n    <ion-card-content>\n      <ion-list>\n        <ion-item *ngFor="let item of items; let i = index">\n          <button ion-button color="dark" clear>\n            {{item.nombre}}\n          </button>\n          <button (click)="eliminarItem(i)" ion-button outline item-right color="danger">\n            <ion-icon  ios="ios-trash" md="md-trash"></ion-icon>\n            Borrar item\n            </button>\n        </ion-item>\n      </ion-list>\n    </ion-card-content>\n  </ion-card>\n\n  <button ion-button icon-left class="button-block" (click)="agregarLista()">\n    <ion-icon ios="ios-add-circle" md="md-add-circle"></ion-icon>\n    Agregar Lista\n  </button>\n\n</ion-content>\n'/*ion-inline-end:"/home/carlosestevez/curso-angular4/Aplicaciones/5.Deseos/src/pages/agregar/agregar.html"*/,
+            selector: 'page-descripcion-actividad',template:/*ion-inline-start:"/home/carlosestevez/U/software2/potatapp/potatapp_v2/myApp/src/pages/descripcion-actividad/descripcion-actividad.html"*/'<ion-header>\n    <ion-navbar>\n      <button ion-button menuToggle>\n        <ion-icon name="menu"></ion-icon>\n      </button>\n      <ion-title>DESCRIPCION</ion-title>\n    </ion-navbar>\n  </ion-header>\n\n\n<ion-content padding>\n  <ion-item-group *ngFor="let d of descripcion">\n    <ion-item-divider color="light">\n      <h1>{{d.nombre_activi | uppercase}}</h1>\n    </ion-item-divider>\n\n    <ion-item>\n      Descripcion: {{d.descripcion_activi}}\n    </ion-item>\n    <ion-item>\n      Fecha: {{d.fecha_activi}}\n    </ion-item>\n    <ion-item>\n      Numero de Jornales: {{d.num_jornales}}\n    </ion-item>\n    <ion-item *ngIf="d.estado_activi==1">\n      Estado: Activo\n    </ion-item>\n    <ion-item *ngIf="d.estado_activi==0">\n      Estado: Inactivo\n    </ion-item>\n      <button ion-button color="secondary" block (click)="editar()" item-right>Editar</button>\n  </ion-item-group>\n</ion-content>\n'/*ion-inline-end:"/home/carlosestevez/U/software2/potatapp/potatapp_v2/myApp/src/pages/descripcion-actividad/descripcion-actividad.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_lista_deseos_lista_deseos__["a" /* ListaDeseosProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
-    ], AgregarPage);
-    return AgregarPage;
+            __WEBPACK_IMPORTED_MODULE_2__providers_finca_finca__["a" /* FincaProvider */]])
+    ], DescripcionActividadPage);
+    return DescripcionActividadPage;
 }());
 
-//# sourceMappingURL=agregar.js.map
+//# sourceMappingURL=descripcion-actividad.js.map
 
 /***/ }),
 
@@ -84,13 +156,10 @@ var AgregarPage = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PendientesPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditarActividadPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_lista_deseos_lista_deseos__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_nav_controller__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular_navigation_nav_params__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__agregar_agregar__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__detalle_detalle__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_finca_finca__ = __webpack_require__(30);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -103,39 +172,74 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
-
-var PendientesPage = (function () {
-    function PendientesPage(navCtrl, navParams, _listaDeseos) {
+var EditarActividadPage = /** @class */ (function () {
+    function EditarActividadPage(navCtrl, navParams, _fincaService) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this._listaDeseos = _listaDeseos;
+        this._fincaService = _fincaService;
+        this.getDescripcion();
+        this.error = false;
     }
-    PendientesPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad PendientesPage');
+    EditarActividadPage.prototype.ngOnChanges = function (changes) {
+        console.log(changes);
     };
-    PendientesPage.prototype.irAgregar = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__agregar_agregar__["a" /* AgregarPage */]);
-    };
-    PendientesPage.prototype.verDetalle = function (lista, idx) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__detalle_detalle__["a" /* DetallePage */], {
-            lista: lista,
-            idx: idx
+    EditarActividadPage.prototype.getDescripcion = function () {
+        var _this = this;
+        this._fincaService.getActividadDesc().subscribe(function (res) {
+            _this.descripcion = res.result;
+            console.log(_this.descripcion);
+            if (_this.descripcion[0].estado_activi == 0) {
+                _this.estado = false;
+            }
+            else {
+                _this.estado = true;
+            }
+        }, function (e) {
+            console.log(e);
         });
     };
-    PendientesPage = __decorate([
+    EditarActividadPage.prototype.guardar = function () {
+        var _this = this;
+        if (this.estado === true) {
+            console.log('if 1');
+            this.descripcion[0].estado_activi = '1';
+            console.log(this.descripcion[0].estado_activi);
+        }
+        else {
+            console.log('if 0');
+            this.descripcion[0].estado_activi = '0';
+            console.log(this.descripcion[0].estado_activi);
+        }
+        console.log(this.descripcion[0]);
+        this._fincaService.putActividad(this.descripcion[0]).subscribe(function (res) {
+            if (!res) {
+                _this.error = true;
+            }
+            else {
+                _this.navCtrl.pop();
+            }
+        }, function (e) {
+            if (e) {
+                _this.error = true;
+            }
+            console.log(e);
+        });
+    };
+    EditarActividadPage.prototype.ionViewDidLoad = function () {
+        console.log("ionViewDidLoad EditarActividadPage");
+    };
+    EditarActividadPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-pendientes',template:/*ion-inline-start:"/home/carlosestevez/curso-angular4/Aplicaciones/5.Deseos/src/pages/pendientes/pendientes.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>Lista de pendientes</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n  <ion-grid *ngIf="(_listaDeseos.listas | pendientes:false).length == 0">\n    <ion-row>\n      <ion-col class="text-center caja-vacia">\n          <ion-icon class="icono-grande" ios="ios-sunny" md="md-sunny"></ion-icon>\n          <p>\n            No hay ninguna lista\n          </p>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n\n  <ion-card *ngFor="let lista of _listaDeseos.listas | pendientes:false; let i=index">\n    <ion-item color="dark" (click)="verDetalle(lista, i)">\n      <h2 style="color: white">\n        {{lista.nombre}}\n      </h2>\n     <ion-note item-right>\n       {{lista.items.length}} items\n     </ion-note>\n    </ion-item>\n\n    <ion-list>\n      <ion-item *ngFor="let item of lista.items | slice: 0:2" (click)="verDetalle(lista, i)">\n        <ion-icon *ngIf="!item.completado" ios="ios-square-outline" md="md-square-outline"></ion-icon>\n        <ion-icon *ngIf="item.completado" ios="ios-checkbox-outline" md="md-checkbox-outline"></ion-icon>\n           {{item.nombre}}\n      </ion-item>\n      <ion-item class="text-center" *ngIf="lista.items.length > 2">\n        <ion-icon color="primary" ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>\n      </ion-item>\n    </ion-list>\n  </ion-card>\n\n  <ion-fab right bottom>\n    <button ion-fab color="primary" (click)="irAgregar()">\n      <ion-icon ios="ios-add" md="md-add"></ion-icon>\n    </button>\n  </ion-fab>\n\n  <!-- <p [appResaltado]="\'red\'" >\n    Hola mundo\n  </p> -->\n\n</ion-content>\n\n'/*ion-inline-end:"/home/carlosestevez/curso-angular4/Aplicaciones/5.Deseos/src/pages/pendientes/pendientes.html"*/,
+            selector: "page-editar-actividad",template:/*ion-inline-start:"/home/carlosestevez/U/software2/potatapp/potatapp_v2/myApp/src/pages/editar-actividad/editar-actividad.html"*/'<ion-header>\n    <ion-navbar>\n      <ion-title>EDITAR ACTIVIDAD</ion-title>\n    </ion-navbar>\n  </ion-header>\n\n<ion-content padding>\n  <ion-list *ngFor="let d of descripcion">\n\n    <ion-item>\n      <ion-label floating>Nombre</ion-label>\n      <ion-input type="text" [(ngModel)]="d.nombre_activi"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Fecha</ion-label>\n      <ion-input type="date" [(ngModel)]="d.fecha_activi"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Numero de Jornales</ion-label>\n      <ion-input type="text"  [(ngModel)]="d.num_jornales"></ion-input>\n    </ion-item>\n\n    <ion-item>\n        <ion-label>Estado</ion-label>\n        <ion-checkbox [(ngModel)]="estado" color="dark"></ion-checkbox>\n      </ion-item>\n\n    <ion-item>\n      <ion-label floating>Descripcion</ion-label>\n      <ion-input type="text" [(ngModel)]="d.descripcion_activi"></ion-input>\n    </ion-item>\n\n    <ion-card *ngIf="error">\n        <ion-card-header color="danger">\n          Debe llenar todos los campos\n        </ion-card-header>\n      </ion-card>\n\n    <button ion-button color="secondary" block (click)="guardar()">Guardar</button>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/home/carlosestevez/U/software2/potatapp/potatapp_v2/myApp/src/pages/editar-actividad/editar-actividad.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_nav_controller__["a" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular_navigation_nav_params__["a" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1__providers_lista_deseos_lista_deseos__["a" /* ListaDeseosProvider */]])
-    ], PendientesPage);
-    return PendientesPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_finca_finca__["a" /* FincaProvider */]])
+    ], EditarActividadPage);
+    return EditarActividadPage;
 }());
 
-//# sourceMappingURL=pendientes.js.map
+//# sourceMappingURL=editar-actividad.js.map
 
 /***/ }),
 
@@ -143,11 +247,11 @@ var PendientesPage = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TerminadosPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DescripcionFincaPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_lista_deseos_lista_deseos__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__detalle_detalle__ = __webpack_require__(51);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_finca_finca__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__editar_finca_editar_finca__ = __webpack_require__(104);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -161,37 +265,328 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var TerminadosPage = (function () {
-    function TerminadosPage(navCtrl, navParams, _listaDeseos) {
+var DescripcionFincaPage = /** @class */ (function () {
+    function DescripcionFincaPage(navCtrl, navParams, _fincaService) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this._listaDeseos = _listaDeseos;
+        this._fincaService = _fincaService;
+        this.getDescripcion();
     }
-    TerminadosPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad TerminadosPage');
-    };
-    TerminadosPage.prototype.verDetalle = function (lista, idx) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__detalle_detalle__["a" /* DetallePage */], {
-            lista: lista,
-            idx: idx
+    DescripcionFincaPage.prototype.getDescripcion = function () {
+        var _this = this;
+        this._fincaService.getFincaDesc().subscribe(function (res) {
+            _this.descripcion = res.result;
+            console.log(_this.descripcion);
+        }, function (e) {
+            console.log(e);
         });
+        return this.descripcion;
     };
-    TerminadosPage = __decorate([
+    DescripcionFincaPage.prototype.editar = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__editar_finca_editar_finca__["a" /* EditarFincaPage */]);
+        /* this.navCtrl.setRoot(EditarActividadPage); */
+    };
+    DescripcionFincaPage.prototype.ionViewDidEnter = function () {
+        this.getDescripcion();
+    };
+    DescripcionFincaPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad DescripcionFincaPage');
+    };
+    DescripcionFincaPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-terminados',template:/*ion-inline-start:"/home/carlosestevez/curso-angular4/Aplicaciones/5.Deseos/src/pages/terminados/terminados.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>Listas Terminadas</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n\n    <ion-grid *ngIf="(_listaDeseos.listas | pendientes:true).length == 0">\n        <ion-row>\n          <ion-col class="text-center caja-vacia">\n              <ion-icon class="icono-grande" ios="ios-sunny" md="md-sunny"></ion-icon>\n              <p>\n                No hay ninguna lista\n              </p>\n          </ion-col>\n        </ion-row>\n      </ion-grid>\n\n\n  <ion-card *ngFor="let lista of _listaDeseos.listas | pendientes:true; let i=index">\n    <ion-item color="dark" (click)="verDetalle(lista, i)">\n      <h2 style="color: white">\n        {{lista.nombre}}\n      </h2>\n     <ion-note item-right>\n       {{lista.items.length}} items\n     </ion-note>\n    </ion-item>\n    \n    <ion-list>\n      <ion-item *ngFor="let item of lista.items | slice: 0:2" (click)="verDetalle(lista, i)">\n        <ion-icon *ngIf="!item.completado" ios="ios-square-outline" md="md-square-outline"></ion-icon>\n        <ion-icon *ngIf="item.completado" ios="ios-checkbox-outline" md="md-checkbox-outline"></ion-icon>\n           {{item.nombre}}\n      </ion-item>\n      <ion-item class="text-center" *ngIf="lista.items.length > 2">\n        <ion-icon color="primary" ios="ios-arrow-dropdown" md="md-arrow-dropdown"></ion-icon>\n      </ion-item>\n    </ion-list>\n  </ion-card>  \n\n\n</ion-content>\n\n'/*ion-inline-end:"/home/carlosestevez/curso-angular4/Aplicaciones/5.Deseos/src/pages/terminados/terminados.html"*/,
+            selector: 'page-descripcion-finca',template:/*ion-inline-start:"/home/carlosestevez/U/software2/potatapp/potatapp_v2/myApp/src/pages/descripcion-finca/descripcion-finca.html"*/'<ion-header>\n    <ion-navbar>\n      <button ion-button menuToggle>\n        <ion-icon name="menu"></ion-icon>\n      </button>\n      <ion-title>DESCRIPCION</ion-title>\n    </ion-navbar>\n  </ion-header>\n\n\n<ion-content padding>\n  <ion-item-group *ngFor="let f of descripcion">\n    <ion-item-divider color="light">\n      <h1>{{f.nombre_finca | uppercase}}</h1>\n    </ion-item-divider>\n\n    <ion-item>\n      Ubicacion: {{f.ubicacion_finca}}\n    </ion-item>\n    <ion-item>\n      Descripcion: {{f.descripcion_finca}}\n    </ion-item>\n    <ion-item>\n      trabajador: {{f.trabajador_encargado}}\n    </ion-item>\n      <button ion-button color="secondary" block (click)="editar()" item-right>Editar</button>\n  </ion-item-group>\n</ion-content>\n\n'/*ion-inline-end:"/home/carlosestevez/U/software2/potatapp/potatapp_v2/myApp/src/pages/descripcion-finca/descripcion-finca.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_lista_deseos_lista_deseos__["a" /* ListaDeseosProvider */]])
-    ], TerminadosPage);
-    return TerminadosPage;
+            __WEBPACK_IMPORTED_MODULE_2__providers_finca_finca__["a" /* FincaProvider */]])
+    ], DescripcionFincaPage);
+    return DescripcionFincaPage;
 }());
 
-//# sourceMappingURL=terminados.js.map
+//# sourceMappingURL=descripcion-finca.js.map
 
 /***/ }),
 
-/***/ 114:
+/***/ 104:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditarFincaPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the EditarFincaPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var EditarFincaPage = /** @class */ (function () {
+    function EditarFincaPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    EditarFincaPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad EditarFincaPage');
+    };
+    EditarFincaPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-editar-finca',template:/*ion-inline-start:"/home/carlosestevez/U/software2/potatapp/potatapp_v2/myApp/src/pages/editar-finca/editar-finca.html"*/'<!--\n  Generated template for the EditarFincaPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>editarFinca</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/home/carlosestevez/U/software2/potatapp/potatapp_v2/myApp/src/pages/editar-finca/editar-finca.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+    ], EditarFincaPage);
+    return EditarFincaPage;
+}());
+
+//# sourceMappingURL=editar-finca.js.map
+
+/***/ }),
+
+/***/ 105:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GestionarActividadPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_finca_finca__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__descripcion_actividad_descripcion_actividad__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__agregar_actividad_agregar_actividad__ = __webpack_require__(100);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var GestionarActividadPage = /** @class */ (function () {
+    function GestionarActividadPage(navCtrl, navParams, _fincaService) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this._fincaService = _fincaService;
+        this.getActividades();
+        this.finca = this._fincaService.getIdFinca();
+    }
+    GestionarActividadPage.prototype.getActividades = function () {
+        var _this = this;
+        this._fincaService.getActividades().subscribe(function (res) {
+            _this.actividades = res.result;
+            console.log(_this.actividades);
+        }, function (e) {
+            console.log(e);
+        });
+    };
+    GestionarActividadPage.prototype.irDescripcion = function (id) {
+        this._fincaService.setIdActividad(id);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__descripcion_actividad_descripcion_actividad__["a" /* DescripcionActividadPage */]);
+    };
+    GestionarActividadPage.prototype.agregar = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__agregar_actividad_agregar_actividad__["a" /* AgregarActividadPage */]);
+    };
+    GestionarActividadPage.prototype.ionViewDidEnter = function () {
+        this.getActividades();
+    };
+    GestionarActividadPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad GestionarActividadPage');
+    };
+    GestionarActividadPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-gestionar-actividad',template:/*ion-inline-start:"/home/carlosestevez/U/software2/potatapp/potatapp_v2/myApp/src/pages/gestionar-actividad/gestionar-actividad.html"*/'<ion-header>\n    <ion-navbar>\n      <button ion-button menuToggle>\n        <ion-icon name="menu"></ion-icon>\n      </button>\n      <ion-title>ACTIVIDADES FINCA {{finca}}</ion-title>\n    </ion-navbar>\n  </ion-header>\n\n  <ion-content padding>\n\n    <ion-item-group>\n      <ion-item-divider color="light">\n        <h1> Gestionar Actividades</h1>\n      </ion-item-divider>\n      <ion-item *ngFor="let actividad of actividades">\n        {{actividad.nombre_activi | uppercase}}\n        <button ion-button outline item-right (click)="irDescripcion(actividad.id_activi)">Ver</button>\n      </ion-item>\n    </ion-item-group>\n\n    <ion-fab right bottom>\n      <button ion-fab color="primary" (click)="agregar()">\n        <ion-icon ios="ios-add" md="md-add"></ion-icon>\n      </button>\n    </ion-fab>\n\n  </ion-content>\n\n'/*ion-inline-end:"/home/carlosestevez/U/software2/potatapp/potatapp_v2/myApp/src/pages/gestionar-actividad/gestionar-actividad.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_finca_finca__["a" /* FincaProvider */]])
+    ], GestionarActividadPage);
+    return GestionarActividadPage;
+}());
+
+//# sourceMappingURL=gestionar-actividad.js.map
+
+/***/ }),
+
+/***/ 106:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GestionarEmpleadosPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the GestionarEmpleadosPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var GestionarEmpleadosPage = /** @class */ (function () {
+    function GestionarEmpleadosPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    GestionarEmpleadosPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad GestionarEmpleadosPage');
+    };
+    GestionarEmpleadosPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-gestionar-empleados',template:/*ion-inline-start:"/home/carlosestevez/U/software2/potatapp/potatapp_v2/myApp/src/pages/gestionar-empleados/gestionar-empleados.html"*/'<ion-header>\n    <ion-navbar>\n      <button ion-button menuToggle>\n        <ion-icon name="menu"></ion-icon>\n      </button>\n      <ion-title>GESTIONAR EMPLEADOS</ion-title>\n    </ion-navbar>\n  </ion-header>\n\n\n<ion-content padding>\n  <ion-fab right bottom>\n    <button ion-fab color="primary" (click)="irAgregar()">\n      <ion-icon ios="ios-add" md="md-add"></ion-icon>\n    </button>\n  </ion-fab>\n</ion-content>\n'/*ion-inline-end:"/home/carlosestevez/U/software2/potatapp/potatapp_v2/myApp/src/pages/gestionar-empleados/gestionar-empleados.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+    ], GestionarEmpleadosPage);
+    return GestionarEmpleadosPage;
+}());
+
+//# sourceMappingURL=gestionar-empleados.js.map
+
+/***/ }),
+
+/***/ 107:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GestionarFincaPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_finca_finca__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__gestionar_actividad_gestionar_actividad__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__descripcion_finca_descripcion_finca__ = __webpack_require__(103);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+/**
+ * Generated class for the GestionarFincaPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var GestionarFincaPage = /** @class */ (function () {
+    function GestionarFincaPage(navCtrl, navParams, _fincasService) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this._fincasService = _fincasService;
+        this.getFincas();
+    }
+    GestionarFincaPage.prototype.getFincas = function () {
+        var _this = this;
+        this._fincasService.getFincas().subscribe(function (res) {
+            _this.fincas = res.result;
+            console.log(_this.fincas);
+        }, function (e) {
+            console.log(e);
+        });
+    };
+    GestionarFincaPage.prototype.irDescripcion = function (id) {
+        this._fincasService.setIdFinca(id);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__descripcion_finca_descripcion_finca__["a" /* DescripcionFincaPage */]);
+    };
+    GestionarFincaPage.prototype.irActividades = function (id) {
+        this._fincasService.setIdFinca(id);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__gestionar_actividad_gestionar_actividad__["a" /* GestionarActividadPage */]);
+    };
+    GestionarFincaPage.prototype.ionViewDidEnter = function () {
+        this.getFincas();
+    };
+    GestionarFincaPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad GestionarFincaPage');
+    };
+    GestionarFincaPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-gestionar-finca',template:/*ion-inline-start:"/home/carlosestevez/U/software2/potatapp/potatapp_v2/myApp/src/pages/gestionar-finca/gestionar-finca.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>GESTIONAR FINCA</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n\n  <ion-item-group>\n    <ion-item-divider color="light">\n      <h1>Fincas</h1>\n    </ion-item-divider>\n    <ion-item *ngFor="let finca of fincas">\n      {{finca.nombre_finca | uppercase}}\n      <button ion-button outline item-right (click)="irActividades(finca.id_finca)">Actividades</button>\n      <button ion-button color="secondary" (click)="irDescripcion(finca.id_finca)" item-right>Ver</button>\n    </ion-item>\n  </ion-item-group>\n\n  <ion-fab right bottom>\n    <button ion-fab color="primary" (click)="irAgregar()">\n      <ion-icon ios="ios-add" md="md-add"></ion-icon>\n    </button>\n  </ion-fab>\n</ion-content>\n'/*ion-inline-end:"/home/carlosestevez/U/software2/potatapp/potatapp_v2/myApp/src/pages/gestionar-finca/gestionar-finca.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_finca_finca__["a" /* FincaProvider */]])
+    ], GestionarFincaPage);
+    return GestionarFincaPage;
+}());
+
+//# sourceMappingURL=gestionar-finca.js.map
+
+/***/ }),
+
+/***/ 108:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HistorialPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the HistorialPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var HistorialPage = /** @class */ (function () {
+    function HistorialPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    HistorialPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad HistorialPage');
+    };
+    HistorialPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-historial',template:/*ion-inline-start:"/home/carlosestevez/U/software2/potatapp/potatapp_v2/myApp/src/pages/historial/historial.html"*/'<ion-header>\n    <ion-navbar>\n      <button ion-button menuToggle>\n        <ion-icon name="menu"></ion-icon>\n      </button>\n      <ion-title>HISTORIAL</ion-title>\n    </ion-navbar>\n  </ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/home/carlosestevez/U/software2/potatapp/potatapp_v2/myApp/src/pages/historial/historial.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+    ], HistorialPage);
+    return HistorialPage;
+}());
+
+//# sourceMappingURL=historial.js.map
+
+/***/ }),
+
+/***/ 118:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -204,28 +599,60 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 114;
+webpackEmptyAsyncContext.id = 118;
 
 /***/ }),
 
-/***/ 155:
+/***/ 160:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"../pages/agregar/agregar.module": [
-		281,
+	"../pages/agregar-actividad/agregar-actividad.module": [
+		284,
+		11
+	],
+	"../pages/agregar-empleado/agregar-empleado.module": [
+		285,
+		10
+	],
+	"../pages/agregar-finca/agregar-finca.module": [
+		286,
+		9
+	],
+	"../pages/descripcion-actividad/descripcion-actividad.module": [
+		287,
+		8
+	],
+	"../pages/descripcion-finca/descripcion-finca.module": [
+		288,
+		7
+	],
+	"../pages/editar-actividad/editar-actividad.module": [
+		289,
+		6
+	],
+	"../pages/editar-empleado/editar-empleado.module": [
+		290,
+		5
+	],
+	"../pages/editar-finca/editar-finca.module": [
+		291,
+		4
+	],
+	"../pages/gestionar-actividad/gestionar-actividad.module": [
+		292,
 		3
 	],
-	"../pages/detalle/detalle.module": [
-		282,
+	"../pages/gestionar-empleados/gestionar-empleados.module": [
+		293,
 		2
 	],
-	"../pages/pendientes/pendientes.module": [
-		283,
+	"../pages/gestionar-finca/gestionar-finca.module": [
+		294,
 		1
 	],
-	"../pages/terminados/terminados.module": [
-		284,
+	"../pages/historial/historial.module": [
+		295,
 		0
 	]
 };
@@ -240,19 +667,18 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 155;
+webpackAsyncContext.id = 160;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 199:
+/***/ 205:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pendientes_pendientes__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__terminados_terminados__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -264,31 +690,165 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
-var TabsPage = (function () {
-    function TabsPage() {
-        this.tab1Root = __WEBPACK_IMPORTED_MODULE_1__pendientes_pendientes__["a" /* PendientesPage */];
-        this.tab2Root = __WEBPACK_IMPORTED_MODULE_2__terminados_terminados__["a" /* TerminadosPage */];
+var HomePage = /** @class */ (function () {
+    function HomePage(navCtrl) {
+        this.navCtrl = navCtrl;
     }
-    TabsPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/carlosestevez/curso-angular4/Aplicaciones/5.Deseos/src/pages/tabs/tabs.html"*/'<ion-tabs color="primary">\n  <ion-tab [root]="tab1Root" tabTitle="Pendientes" tabIcon="home"></ion-tab>\n  <ion-tab [root]="tab2Root" tabTitle="Terminado" tabIcon="information-circle"></ion-tab>\n</ion-tabs>\n'/*ion-inline-end:"/home/carlosestevez/curso-angular4/Aplicaciones/5.Deseos/src/pages/tabs/tabs.html"*/
+    HomePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-home',template:/*ion-inline-start:"/home/carlosestevez/U/software2/potatapp/potatapp_v2/myApp/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>INICIO</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h3>Ionic Menu Starter</h3>\n\n  <p>\n    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.\n  </p>\n\n  <button ion-button secondary menuToggle>Toggle Menu</button>\n</ion-content>\n'/*ion-inline-end:"/home/carlosestevez/U/software2/potatapp/potatapp_v2/myApp/src/pages/home/home.html"*/
         }),
-        __metadata("design:paramtypes", [])
-    ], TabsPage);
-    return TabsPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
+    ], HomePage);
+    return HomePage;
 }());
 
-//# sourceMappingURL=tabs.js.map
+//# sourceMappingURL=home.js.map
 
 /***/ }),
 
-/***/ 200:
+/***/ 206:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AgregarEmpleadoPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the AgregarEmpleadoPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var AgregarEmpleadoPage = /** @class */ (function () {
+    function AgregarEmpleadoPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    AgregarEmpleadoPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad AgregarEmpleadoPage');
+    };
+    AgregarEmpleadoPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-agregar-empleado',template:/*ion-inline-start:"/home/carlosestevez/U/software2/potatapp/potatapp_v2/myApp/src/pages/agregar-empleado/agregar-empleado.html"*/'<!--\n  Generated template for the AgregarEmpleadoPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>agregarEmpleado</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/home/carlosestevez/U/software2/potatapp/potatapp_v2/myApp/src/pages/agregar-empleado/agregar-empleado.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+    ], AgregarEmpleadoPage);
+    return AgregarEmpleadoPage;
+}());
+
+//# sourceMappingURL=agregar-empleado.js.map
+
+/***/ }),
+
+/***/ 207:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AgregarFincaPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the AgregarFincaPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var AgregarFincaPage = /** @class */ (function () {
+    function AgregarFincaPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    AgregarFincaPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad AgregarFincaPage');
+    };
+    AgregarFincaPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-agregar-finca',template:/*ion-inline-start:"/home/carlosestevez/U/software2/potatapp/potatapp_v2/myApp/src/pages/agregar-finca/agregar-finca.html"*/'<!--\n  Generated template for the AgregarFincaPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>agregarFinca</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/home/carlosestevez/U/software2/potatapp/potatapp_v2/myApp/src/pages/agregar-finca/agregar-finca.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+    ], AgregarFincaPage);
+    return AgregarFincaPage;
+}());
+
+//# sourceMappingURL=agregar-finca.js.map
+
+/***/ }),
+
+/***/ 208:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditarEmpleadoPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the EditarEmpleadoPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var EditarEmpleadoPage = /** @class */ (function () {
+    function EditarEmpleadoPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    EditarEmpleadoPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad EditarEmpleadoPage');
+    };
+    EditarEmpleadoPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-editar-empleado',template:/*ion-inline-start:"/home/carlosestevez/U/software2/potatapp/potatapp_v2/myApp/src/pages/editar-empleado/editar-empleado.html"*/'<!--\n  Generated template for the EditarEmpleadoPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>editarEmpleado</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/home/carlosestevez/U/software2/potatapp/potatapp_v2/myApp/src/pages/editar-empleado/editar-empleado.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+    ], EditarEmpleadoPage);
+    return EditarEmpleadoPage;
+}());
+
+//# sourceMappingURL=editar-empleado.js.map
+
+/***/ }),
+
+/***/ 209:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(201);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(224);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(232);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -296,26 +856,33 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 224:
+/***/ 232:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(269);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__ = __webpack_require__(199);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__ = __webpack_require__(198);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_pendientes_pendientes__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_terminados_terminados__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_agregar_agregar__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_lista_deseos_lista_deseos__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pipes_placeholder_placeholder__ = __webpack_require__(278);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_detalle_detalle__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pipes_pendientes_pendientes__ = __webpack_require__(279);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__directives_resaltado_directive__ = __webpack_require__(280);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(275);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_home_home__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_gestionar_empleados_gestionar_empleados__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_gestionar_finca_gestionar_finca__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_gestionar_actividad_gestionar_actividad__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_historial_historial__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_descripcion_finca_descripcion_finca__ = __webpack_require__(103);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_descripcion_actividad_descripcion_actividad__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_editar_actividad_editar_actividad__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_agregar_actividad_agregar_actividad__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_agregar_finca_agregar_finca__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_agregar_empleado_agregar_empleado__ = __webpack_require__(206);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_editar_finca_editar_finca__ = __webpack_require__(104);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_editar_empleado_editar_empleado__ = __webpack_require__(208);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ionic_native_status_bar__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_native_splash_screen__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__providers_finca_finca__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__angular_http__ = __webpack_require__(161);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -337,47 +904,79 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AppModule = (function () {
+
+
+
+
+
+
+
+var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__["a" /* TabsPage */],
-                __WEBPACK_IMPORTED_MODULE_7__pages_pendientes_pendientes__["a" /* PendientesPage */],
-                __WEBPACK_IMPORTED_MODULE_8__pages_terminados_terminados__["a" /* TerminadosPage */],
-                __WEBPACK_IMPORTED_MODULE_9__pages_agregar_agregar__["a" /* AgregarPage */],
-                __WEBPACK_IMPORTED_MODULE_11__pipes_placeholder_placeholder__["a" /* PlaceholderPipe */],
-                __WEBPACK_IMPORTED_MODULE_12__pages_detalle_detalle__["a" /* DetallePage */],
-                __WEBPACK_IMPORTED_MODULE_13__pipes_pendientes_pendientes__["a" /* PendientesPipe */],
-                __WEBPACK_IMPORTED_MODULE_14__directives_resaltado_directive__["a" /* ResaltadoDirective */]
+                __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_5__pages_home_home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_6__pages_gestionar_empleados_gestionar_empleados__["a" /* GestionarEmpleadosPage */],
+                __WEBPACK_IMPORTED_MODULE_7__pages_gestionar_finca_gestionar_finca__["a" /* GestionarFincaPage */],
+                __WEBPACK_IMPORTED_MODULE_8__pages_gestionar_actividad_gestionar_actividad__["a" /* GestionarActividadPage */],
+                __WEBPACK_IMPORTED_MODULE_9__pages_historial_historial__["a" /* HistorialPage */],
+                __WEBPACK_IMPORTED_MODULE_10__pages_descripcion_finca_descripcion_finca__["a" /* DescripcionFincaPage */],
+                __WEBPACK_IMPORTED_MODULE_11__pages_descripcion_actividad_descripcion_actividad__["a" /* DescripcionActividadPage */],
+                __WEBPACK_IMPORTED_MODULE_12__pages_editar_actividad_editar_actividad__["a" /* EditarActividadPage */],
+                __WEBPACK_IMPORTED_MODULE_13__pages_agregar_actividad_agregar_actividad__["a" /* AgregarActividadPage */],
+                __WEBPACK_IMPORTED_MODULE_14__pages_agregar_finca_agregar_finca__["a" /* AgregarFincaPage */],
+                __WEBPACK_IMPORTED_MODULE_15__pages_agregar_empleado_agregar_empleado__["a" /* AgregarEmpleadoPage */],
+                __WEBPACK_IMPORTED_MODULE_16__pages_editar_finca_editar_finca__["a" /* EditarFincaPage */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_editar_empleado_editar_empleado__["a" /* EditarEmpleadoPage */]
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {}, {
+                __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* MyApp */], {}, {
                     links: [
-                        { loadChildren: '../pages/agregar/agregar.module#AgregarPageModule', name: 'AgregarPage', segment: 'agregar', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/detalle/detalle.module#DetallePageModule', name: 'DetallePage', segment: 'detalle', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/pendientes/pendientes.module#PendientesPageModule', name: 'PendientesPage', segment: 'pendientes', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/terminados/terminados.module#TerminadosPageModule', name: 'TerminadosPage', segment: 'terminados', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/agregar-actividad/agregar-actividad.module#AgregarActividadPageModule', name: 'AgregarActividadPage', segment: 'agregar-actividad', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/agregar-empleado/agregar-empleado.module#AgregarEmpleadoPageModule', name: 'AgregarEmpleadoPage', segment: 'agregar-empleado', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/agregar-finca/agregar-finca.module#AgregarFincaPageModule', name: 'AgregarFincaPage', segment: 'agregar-finca', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/descripcion-actividad/descripcion-actividad.module#DescripcionActividadPageModule', name: 'DescripcionActividadPage', segment: 'descripcion-actividad', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/descripcion-finca/descripcion-finca.module#DescripcionFincaPageModule', name: 'DescripcionFincaPage', segment: 'descripcion-finca', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/editar-actividad/editar-actividad.module#EditarActividadPageModule', name: 'EditarActividadPage', segment: 'editar-actividad', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/editar-empleado/editar-empleado.module#EditarEmpleadoPageModule', name: 'EditarEmpleadoPage', segment: 'editar-empleado', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/editar-finca/editar-finca.module#EditarFincaPageModule', name: 'EditarFincaPage', segment: 'editar-finca', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/gestionar-actividad/gestionar-actividad.module#GestionarActividadPageModule', name: 'GestionarActividadPage', segment: 'gestionar-actividad', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/gestionar-empleados/gestionar-empleados.module#GestionarEmpleadosPageModule', name: 'GestionarEmpleadosPage', segment: 'gestionar-empleados', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/gestionar-finca/gestionar-finca.module#GestionarFincaPageModule', name: 'GestionarFincaPage', segment: 'gestionar-finca', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/historial/historial.module#HistorialPageModule', name: 'HistorialPage', segment: 'historial', priority: 'low', defaultHistory: [] }
                     ]
-                })
+                }),
+                __WEBPACK_IMPORTED_MODULE_21__angular_http__["c" /* HttpModule */],
+                __WEBPACK_IMPORTED_MODULE_21__angular_http__["d" /* JsonpModule */],
+                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["d" /* ReactiveFormsModule */]
             ],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicApp */]],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["a" /* IonicApp */]],
             entryComponents: [
-                __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__["a" /* TabsPage */],
-                __WEBPACK_IMPORTED_MODULE_7__pages_pendientes_pendientes__["a" /* PendientesPage */],
-                __WEBPACK_IMPORTED_MODULE_8__pages_terminados_terminados__["a" /* TerminadosPage */],
-                __WEBPACK_IMPORTED_MODULE_9__pages_agregar_agregar__["a" /* AgregarPage */],
-                __WEBPACK_IMPORTED_MODULE_12__pages_detalle_detalle__["a" /* DetallePage */]
+                __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_5__pages_home_home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_6__pages_gestionar_empleados_gestionar_empleados__["a" /* GestionarEmpleadosPage */],
+                __WEBPACK_IMPORTED_MODULE_7__pages_gestionar_finca_gestionar_finca__["a" /* GestionarFincaPage */],
+                __WEBPACK_IMPORTED_MODULE_8__pages_gestionar_actividad_gestionar_actividad__["a" /* GestionarActividadPage */],
+                __WEBPACK_IMPORTED_MODULE_9__pages_historial_historial__["a" /* HistorialPage */],
+                __WEBPACK_IMPORTED_MODULE_10__pages_descripcion_finca_descripcion_finca__["a" /* DescripcionFincaPage */],
+                __WEBPACK_IMPORTED_MODULE_11__pages_descripcion_actividad_descripcion_actividad__["a" /* DescripcionActividadPage */],
+                __WEBPACK_IMPORTED_MODULE_12__pages_editar_actividad_editar_actividad__["a" /* EditarActividadPage */],
+                __WEBPACK_IMPORTED_MODULE_13__pages_agregar_actividad_agregar_actividad__["a" /* AgregarActividadPage */],
+                __WEBPACK_IMPORTED_MODULE_14__pages_agregar_finca_agregar_finca__["a" /* AgregarFincaPage */],
+                __WEBPACK_IMPORTED_MODULE_15__pages_agregar_empleado_agregar_empleado__["a" /* AgregarEmpleadoPage */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_editar_empleado_editar_empleado__["a" /* EditarEmpleadoPage */],
+                __WEBPACK_IMPORTED_MODULE_16__pages_editar_finca_editar_finca__["a" /* EditarFincaPage */]
             ],
             providers: [
-                __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__["a" /* StatusBar */],
-                __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__["a" /* SplashScreen */],
-                { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */] },
-                __WEBPACK_IMPORTED_MODULE_10__providers_lista_deseos_lista_deseos__["a" /* ListaDeseosProvider */]
+                __WEBPACK_IMPORTED_MODULE_18__ionic_native_status_bar__["a" /* StatusBar */],
+                __WEBPACK_IMPORTED_MODULE_19__ionic_native_splash_screen__["a" /* SplashScreen */],
+                { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicErrorHandler */] },
+                __WEBPACK_IMPORTED_MODULE_20__providers_finca_finca__["a" /* FincaProvider */]
             ]
         })
     ], AppModule);
@@ -388,48 +987,19 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 250:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListaItem; });
-var ListaItem = (function () {
-    function ListaItem() {
-    }
-    return ListaItem;
-}());
-
-//# sourceMappingURL=lista-item.js.map
-
-/***/ }),
-
-/***/ 251:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Lista; });
-var Lista = (function () {
-    function Lista(nombre) {
-        this.nombre = nombre;
-        this.terminada = false;
-    }
-    return Lista;
-}());
-
-//# sourceMappingURL=listas.js.map
-
-/***/ }),
-
-/***/ 269:
+/***/ 275:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(198);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__ = __webpack_require__(199);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_gestionar_empleados_gestionar_empleados__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_gestionar_finca_gestionar_finca__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_historial_historial__ = __webpack_require__(108);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -444,18 +1014,44 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var MyApp = (function () {
+
+
+
+var MyApp = /** @class */ (function () {
     function MyApp(platform, statusBar, splashScreen) {
-        this.rootPage = __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__["a" /* TabsPage */];
-        platform.ready().then(function () {
+        this.platform = platform;
+        this.statusBar = statusBar;
+        this.splashScreen = splashScreen;
+        this.rootPage = __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */];
+        this.initializeApp();
+        // used for an example of ngFor and navigation
+        this.pages = [
+            { title: 'Inicio', icono: "home", component: __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */] },
+            { title: 'Gestionar Finca', icono: 'paper', component: __WEBPACK_IMPORTED_MODULE_6__pages_gestionar_finca_gestionar_finca__["a" /* GestionarFincaPage */] },
+            { title: 'Gestionar Empleados', icono: 'people', component: __WEBPACK_IMPORTED_MODULE_5__pages_gestionar_empleados_gestionar_empleados__["a" /* GestionarEmpleadosPage */] },
+            { title: 'Historial', icono: 'list', component: __WEBPACK_IMPORTED_MODULE_7__pages_historial_historial__["a" /* HistorialPage */] }
+        ];
+    }
+    MyApp.prototype.initializeApp = function () {
+        var _this = this;
+        this.platform.ready().then(function () {
             // Okay, so the platform is ready and our plugins are available.
             // Here you can do any higher level native things you might need.
-            statusBar.styleDefault();
-            splashScreen.hide();
+            _this.statusBar.styleDefault();
+            _this.splashScreen.hide();
         });
-    }
+    };
+    MyApp.prototype.openPage = function (page) {
+        // Reset the content nav to have just this page
+        // we wouldn't want the back button to show in this scenario
+        this.nav.setRoot(page.component);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Nav */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* Nav */])
+    ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/carlosestevez/curso-angular4/Aplicaciones/5.Deseos/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/home/carlosestevez/curso-angular4/Aplicaciones/5.Deseos/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/carlosestevez/U/software2/potatapp/potatapp_v2/myApp/src/app/app.html"*/'<ion-menu [content]="content">\n  <ion-header>\n    <ion-toolbar>\n      <ion-title>Menu</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <ion-list>\n      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">\n        {{p.title}}\n        <ion-icon [name]="p.icono" item-right></ion-icon>\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n'/*ion-inline-end:"/home/carlosestevez/U/software2/potatapp/potatapp_v2/myApp/src/app/app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
@@ -466,85 +1062,15 @@ var MyApp = (function () {
 
 /***/ }),
 
-/***/ 278:
+/***/ 30:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PlaceholderPipe; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FincaProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-var PlaceholderPipe = (function () {
-    function PlaceholderPipe() {
-    }
-    PlaceholderPipe.prototype.transform = function (value, defecto) {
-        return (value) ? value : defecto;
-    };
-    PlaceholderPipe = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["S" /* Pipe */])({
-            name: 'placeholder',
-        })
-    ], PlaceholderPipe);
-    return PlaceholderPipe;
-}());
-
-//# sourceMappingURL=placeholder.js.map
-
-/***/ }),
-
-/***/ 279:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PendientesPipe; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-var PendientesPipe = (function () {
-    function PendientesPipe() {
-    }
-    /**
-     * Takes a value and makes it lowercase.
-     */
-    PendientesPipe.prototype.transform = function (listas, estado) {
-        var nuevaLista = [];
-        for (var _i = 0, listas_1 = listas; _i < listas_1.length; _i++) {
-            var lista = listas_1[_i];
-            if (lista.terminada == estado) {
-                nuevaLista.push(lista);
-            }
-        }
-        return nuevaLista;
-    };
-    PendientesPipe = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["S" /* Pipe */])({
-            name: 'pendientes',
-            pure: false
-        })
-    ], PendientesPipe);
-    return PendientesPipe;
-}());
-
-//# sourceMappingURL=pendientes.js.map
-
-/***/ }),
-
-/***/ 280:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ResaltadoDirective; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(257);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -555,185 +1081,64 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var ResaltadoDirective = (function () {
-    function ResaltadoDirective(el) {
-        this.el = el;
-        console.log("directiva llamada");
-        //el.nativeElement.style.backgroundColor = "cyan";
+
+
+/* import { Observable } from "rxjs/Observable"; */
+var FincaProvider = /** @class */ (function () {
+    function FincaProvider(_http) {
+        this._http = _http;
+        this.url = "http://localhost:3546/api/";
     }
-    ResaltadoDirective.prototype.mouseEntro = function () {
-        this.resaltar(this.nuevoColor || 'cyan');
+    FincaProvider.prototype.setIdFinca = function (id) {
+        this.idFinca = id;
     };
-    ResaltadoDirective.prototype.mouseSalir = function () {
-        this.resaltar(null);
+    FincaProvider.prototype.getIdFinca = function () {
+        return this.idFinca;
     };
-    ResaltadoDirective.prototype.resaltar = function (color) {
-        this.el.nativeElement.style.backgroundColor = color;
+    FincaProvider.prototype.setIdActividad = function (id) {
+        this.idActividad = id;
     };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])("appResaltado"),
-        __metadata("design:type", String)
-    ], ResaltadoDirective.prototype, "nuevoColor", void 0);
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["y" /* HostListener */])('mouseenter'),
-        __metadata("design:type", Function),
-        __metadata("design:paramtypes", []),
-        __metadata("design:returntype", void 0)
-    ], ResaltadoDirective.prototype, "mouseEntro", null);
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["y" /* HostListener */])('mouseleave'),
-        __metadata("design:type", Function),
-        __metadata("design:paramtypes", []),
-        __metadata("design:returntype", void 0)
-    ], ResaltadoDirective.prototype, "mouseSalir", null);
-    ResaltadoDirective = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["s" /* Directive */])({
-            selector: '[appResaltado]'
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */]])
-    ], ResaltadoDirective);
-    return ResaltadoDirective;
-}());
-
-//# sourceMappingURL=resaltado.directive.js.map
-
-/***/ }),
-
-/***/ 40:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListaDeseosProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var ListaDeseosProvider = (function () {
-    function ListaDeseosProvider() {
-        this.listas = [];
-        /* let lista1 = new Lista('Compras de supermercado');
-        let lista2 = new Lista('Juegos que deseo');
-        let lista3 = new Lista('Cosas de la universidad');
-    
-        this.listas.push(lista1);
-        this.listas.push(lista2);
-        this.listas.push(lista3); */
-        this.cargarData();
-        console.log('Hello ListaDeseosProvider Provider');
-    }
-    ListaDeseosProvider.prototype.actualizarData = function () {
-        localStorage.setItem("data", JSON.stringify(this.listas));
+    FincaProvider.prototype.getIdActividad = function () {
+        return this.idActividad;
     };
-    ListaDeseosProvider.prototype.cargarData = function () {
-        if (localStorage.getItem("data")) {
-            this.listas = JSON.parse(localStorage.getItem("data"));
-        }
+    FincaProvider.prototype.getFincas = function () {
+        return this._http.get(this.url + "fincas").map(function (res) { return res.json(); });
     };
-    ListaDeseosProvider.prototype.agregarLista = function (lista) {
-        this.listas.push(lista);
-        this.actualizarData();
+    FincaProvider.prototype.getActividades = function () {
+        return this._http.get(this.url + ("actividades/" + this.getIdFinca())).map(function (res) { return res.json(); });
     };
-    ListaDeseosProvider.prototype.borrarLista = function (idx) {
-        this.listas.splice(idx, 1);
-        this.actualizarData();
+    FincaProvider.prototype.getActividadDesc = function () {
+        console.log('entro a Fincas service');
+        console.log(this.getIdActividad());
+        return this._http.get(this.url + ("actividad/" + this.getIdActividad())).map(function (res) { return res.json(); });
     };
-    ListaDeseosProvider = __decorate([
+    FincaProvider.prototype.getFincaDesc = function () {
+        console.log('entro a Fincas service');
+        console.log(this.getIdFinca());
+        return this._http.get(this.url + ("finca/" + this.getIdFinca())).map(function (res) { return res.json(); });
+    };
+    FincaProvider.prototype.putActividad = function (actividad) {
+        var json = JSON.stringify(actividad);
+        var params = json;
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' });
+        return this._http.put(this.url + ("actividad/" + actividad.id_activi), params, { headers: headers }).map(function (res) { return res.json(); });
+    };
+    FincaProvider.prototype.postActividad = function (actividad) {
+        var json = JSON.stringify(actividad);
+        var params = json;
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Content-Type': 'application/json' });
+        return this._http.post(this.url + "actividad", params, { headers: headers }).map(function (res) { return res.json(); });
+    };
+    FincaProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [])
-    ], ListaDeseosProvider);
-    return ListaDeseosProvider;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]])
+    ], FincaProvider);
+    return FincaProvider;
 }());
 
-//# sourceMappingURL=lista-deseos.js.map
-
-/***/ }),
-
-/***/ 51:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DetallePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_lista_deseos_lista_deseos__ = __webpack_require__(40);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var DetallePage = (function () {
-    function DetallePage(navCtrl, navParams, _listaDeseos, alertCtrl) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this._listaDeseos = _listaDeseos;
-        this.alertCtrl = alertCtrl;
-        this.idx = this.navParams.get("idx");
-        this.lista = this.navParams.get("lista");
-    }
-    DetallePage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad DetallePage');
-    };
-    DetallePage.prototype.actualizar = function (item) {
-        item.completado = !item.completado;
-        var todosMarcados = true;
-        for (var _i = 0, _a = this.lista.items; _i < _a.length; _i++) {
-            var item_1 = _a[_i];
-            if (!item_1.completado) {
-                todosMarcados = false;
-                break;
-            }
-        }
-        this.lista.terminada = todosMarcados;
-        this._listaDeseos.actualizarData();
-    };
-    DetallePage.prototype.borrarItem = function () {
-        var _this = this;
-        var confirm = this.alertCtrl.create({
-            title: '¿Esta seguro que desea eliminar la lista?',
-            message: 'Desea borrar este item?',
-            buttons: ['Cancelar',
-                {
-                    text: 'Eliminar',
-                    handler: function () {
-                        //console.log('Eliminar');
-                        _this._listaDeseos.borrarLista(_this.idx);
-                        _this.navCtrl.pop();
-                    }
-                }
-            ]
-        });
-        confirm.present();
-    };
-    DetallePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-detalle',template:/*ion-inline-start:"/home/carlosestevez/curso-angular4/Aplicaciones/5.Deseos/src/pages/detalle/detalle.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>{{lista.nombre}}</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n  <ion-card>\n    <ion-card-header>\n      <ion-item>\n        <ion-label floating>Nombre de la lista</ion-label>\n        <ion-input type="text" [(ngModel)]="lista.nombre"></ion-input>\n      </ion-item>  \n      <hr/> \n    </ion-card-header>\n    <ion-card-content>\n      <ion-list>\n        <ion-item *ngFor="let item of lista.items" (click)="actualizar(item)">\n          <ion-icon item-left *ngIf="!item.completado" ios="ios-square-outline" md="md-square-outline"></ion-icon>\n          <ion-icon item-left *ngIf="item.completado" ios="ios-checkbox-outline" md="md-checkbox-outline"></ion-icon>\n          <h2 [class.tachado]="item.completado">{{item.nombre}}</h2>\n        </ion-item>\n      </ion-list>\n\n      <br><br>\n      <button ion-button (click)= "borrarItem()" class="button-block" color="danger">Borrar lista</button>\n\n    </ion-card-content>\n  </ion-card>\n\n</ion-content>'/*ion-inline-end:"/home/carlosestevez/curso-angular4/Aplicaciones/5.Deseos/src/pages/detalle/detalle.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_lista_deseos_lista_deseos__["a" /* ListaDeseosProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
-    ], DetallePage);
-    return DetallePage;
-}());
-
-//# sourceMappingURL=detalle.js.map
+//# sourceMappingURL=finca.js.map
 
 /***/ })
 
-},[200]);
+},[209]);
 //# sourceMappingURL=main.js.map
