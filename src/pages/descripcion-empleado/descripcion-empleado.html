@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>DESCRIPCION</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+<ion-item-group *ngFor="let d of descripcion">
+  <ion-item-divider color="light">
+    <h1>{{d.nombre_emple + ' ' + d.apellidos_emple | uppercase}}</h1>
+  </ion-item-divider>
+
+  <ion-item>
+    Cedula: {{d.cedula_emple}}
+  </ion-item>
+  <ion-item>
+    Nacimiento: {{d.nacimiento_emple}}
+  </ion-item>
+  <ion-item>
+    Eps: {{d.eps_emple}}
+  </ion-item>
+  <ion-item>
+    Valor Jornal: {{d.valor_jornal | currency}}
+  </ion-item>
+  <ion-item *ngIf="d.estado_emple==1">
+    Estado: Activo
+  </ion-item>
+  <ion-item *ngIf="d.estado_emple==0">
+    Estado: Inactivo
+  </ion-item>
+    <button ion-button color="secondary" block (click)="editar()" item-right>Editar</button>
+</ion-item-group>
+</ion-content>

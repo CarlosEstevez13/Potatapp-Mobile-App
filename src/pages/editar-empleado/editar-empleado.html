@@ -1,18 +1,53 @@
-<!--
-  Generated template for the EditarEmpleadoPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>editarEmpleado</ion-title>
+    <ion-title>EDITAR EMPLEADO</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
 <ion-content padding>
+<ion-list *ngFor="let d of descripcion">
 
+  <ion-item>
+    <ion-label floating>Nombre</ion-label>
+    <ion-input type="text" [(ngModel)]="d.nombre_emple"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Apellido</ion-label>
+    <ion-input type="text" [(ngModel)]="d.apellidos_emple"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Cedula</ion-label>
+    <ion-input type="text" [(ngModel)]="d.cedula_emple"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Fecha Nacimiento</ion-label>
+    <ion-input type="date" [(ngModel)]="d.nacimiento_emple"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Eps</ion-label>
+    <ion-input type="text"  [(ngModel)]="d.eps_emple"></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-label>Activo</ion-label>
+      <ion-checkbox [(ngModel)]="estado" color="dark"></ion-checkbox>
+    </ion-item>
+
+  <ion-item>
+    <ion-label floating>Valor Jornal</ion-label>
+    <ion-input type="text" [(ngModel)]="d.valor_jornal"></ion-input>
+  </ion-item>
+
+  <ion-card *ngIf="error">
+      <ion-card-header color="danger">
+        Debe llenar todos los campos
+      </ion-card-header>
+    </ion-card>
+
+  <button ion-button color="secondary" block (click)="guardar()">Guardar</button>
+</ion-list>
 </ion-content>

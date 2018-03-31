@@ -1,14 +1,14 @@
 webpackJsonp([10],{
 
-/***/ 285:
+/***/ 287:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AgregarEmpleadoPageModule", function() { return AgregarEmpleadoPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AgregarFincaPageModule", function() { return AgregarFincaPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__agregar_empleado__ = __webpack_require__(206);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__agregar_finca__ = __webpack_require__(209);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AgregarEmpleadoPageModule = /** @class */ (function () {
-    function AgregarEmpleadoPageModule() {
+var AgregarFincaPageModule = /** @class */ (function () {
+    function AgregarFincaPageModule() {
     }
-    AgregarEmpleadoPageModule = __decorate([
+    AgregarFincaPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__agregar_empleado__["a" /* AgregarEmpleadoPage */],
+                __WEBPACK_IMPORTED_MODULE_2__agregar_finca__["a" /* AgregarFincaPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__agregar_empleado__["a" /* AgregarEmpleadoPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__agregar_finca__["a" /* AgregarFincaPage */]),
             ],
         })
-    ], AgregarEmpleadoPageModule);
-    return AgregarEmpleadoPageModule;
+    ], AgregarFincaPageModule);
+    return AgregarFincaPageModule;
 }());
 
-//# sourceMappingURL=agregar-empleado.module.js.map
+//# sourceMappingURL=agregar-finca.module.js.map
 
 /***/ })
 

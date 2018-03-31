@@ -11,6 +11,7 @@ import { GestionarFincaPage } from '../pages/gestionar-finca/gestionar-finca';
 import { GestionarActividadPage } from '../pages/gestionar-actividad/gestionar-actividad';
 import { HistorialPage } from '../pages/historial/historial';
 import { DescripcionFincaPage } from '../pages/descripcion-finca/descripcion-finca';
+import { DescripcionEmpleadoPage } from '../pages/descripcion-empleado/descripcion-empleado';
 import { DescripcionActividadPage } from '../pages/descripcion-actividad/descripcion-actividad';
 import { EditarActividadPage } from '../pages/editar-actividad/editar-actividad';
 import { AgregarActividadPage } from '../pages/agregar-actividad/agregar-actividad';
@@ -35,6 +36,7 @@ import {HttpModule, JsonpModule} from '@angular/http';
     HistorialPage,
     DescripcionFincaPage,
     DescripcionActividadPage,
+    DescripcionEmpleadoPage,
     EditarActividadPage,
     AgregarActividadPage,
     AgregarFincaPage,
@@ -60,6 +62,7 @@ import {HttpModule, JsonpModule} from '@angular/http';
     HistorialPage,
     DescripcionFincaPage,
     DescripcionActividadPage,
+    DescripcionEmpleadoPage,
     EditarActividadPage,
     AgregarActividadPage,
     AgregarFincaPage,

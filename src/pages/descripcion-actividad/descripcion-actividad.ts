@@ -1,4 +1,4 @@
-import { Component, OnChanges } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FincaProvider } from '../../providers/finca/finca';
 import { EditarActividadPage } from '../editar-actividad/editar-actividad';
@@ -15,7 +15,7 @@ import { EditarActividadPage } from '../editar-actividad/editar-actividad';
   selector: 'page-descripcion-actividad',
   templateUrl: 'descripcion-actividad.html',
 })
-export class DescripcionActividadPage implements OnChanges{
+export class DescripcionActividadPage{
 
   public descripcion:any;
   constructor(public navCtrl: NavController,
@@ -23,14 +23,10 @@ export class DescripcionActividadPage implements OnChanges{
               private _fincaService: FincaProvider) {
                 this.getDescripcion();
   }
-  ngOnChanges(){
-    console.log('algo cambio');
-  }
 
   getDescripcion(){
     this._fincaService.getActividadDesc().subscribe(res => {
       this.descripcion = res.result;
-      console.log(this.descripcion);
       }, e => {
         console.log(e);
       });

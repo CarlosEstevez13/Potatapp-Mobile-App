@@ -1,4 +1,4 @@
-import { Component, OnChanges } from "@angular/core";
+import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { FincaProvider } from "../../providers/finca/finca";
 
@@ -7,7 +7,7 @@ import { FincaProvider } from "../../providers/finca/finca";
   selector: "page-editar-actividad",
   templateUrl: "editar-actividad.html"
 })
-export class EditarActividadPage implements OnChanges{
+export class EditarActividadPage{
   public descripcion;
   public error:boolean;
   public estado:any;
@@ -20,15 +20,11 @@ export class EditarActividadPage implements OnChanges{
     this.getDescripcion();
     this.error = false;
   }
-  ngOnChanges(changes){
-    console.log(changes);
-  }
 
   getDescripcion() {
     this._fincaService.getActividadDesc().subscribe(
       res => {
         this.descripcion = res.result;
-        console.log(this.descripcion);
         if(this.descripcion[0].estado_activi ==0){
           this.estado = false;
         }else{
@@ -44,15 +40,10 @@ export class EditarActividadPage implements OnChanges{
   guardar() {
 
     if(this.estado === true){
-      console.log('if 1');
       this.descripcion[0].estado_activi = '1';
-      console.log(this.descripcion[0].estado_activi);
     }else{
-      console.log('if 0');
       this.descripcion[0].estado_activi = '0';
-      console.log(this.descripcion[0].estado_activi);
     }
-    console.log(this.descripcion[0]);
     this._fincaService.putActividad(this.descripcion[0]).subscribe(
       res => {
         if (!res) {

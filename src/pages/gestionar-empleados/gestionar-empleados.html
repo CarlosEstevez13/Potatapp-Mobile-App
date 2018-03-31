@@ -1,16 +1,37 @@
 <ion-header>
-    <ion-navbar>
-      <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-      <ion-title>GESTIONAR EMPLEADOS</ion-title>
-    </ion-navbar>
-  </ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>GESTIONAR EMPLEADOS</ion-title>
+  </ion-navbar>
+</ion-header>
 
 
 <ion-content padding>
+
+  <ion-item-group>
+    <ion-item-divider color="light">
+      <h1>Activos</h1>
+    </ion-item-divider>
+    <ion-item *ngFor="let empleado of empleados">
+      {{empleado.nombre_emple + ' ' + empleado.apellidos_emple | uppercase}}
+      <button ion-button color="secondary" (click)="irDescripcion(empleado.id_empleado)" item-right>Ver</button>
+    </ion-item>
+  </ion-item-group>
+
+  <ion-item-group>
+    <ion-item-divider color="light">
+      <h1>Inactivos</h1>
+    </ion-item-divider>
+    <ion-item *ngFor="let empleado of empleados1">
+      {{empleado.nombre_emple + ' ' + empleado.apellidos_emple | uppercase}}
+      <button ion-button color="secondary" (click)="irDescripcion(empleado.id_empleado)" item-right>Ver</button>
+    </ion-item>
+  </ion-item-group>
+
   <ion-fab right bottom>
-    <button ion-fab color="primary" (click)="irAgregar()">
+    <button ion-fab color="primary" (click)="agregar()">
       <ion-icon ios="ios-add" md="md-add"></ion-icon>
     </button>
   </ion-fab>

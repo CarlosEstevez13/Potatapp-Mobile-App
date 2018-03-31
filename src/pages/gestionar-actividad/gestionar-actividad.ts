@@ -1,49 +1,60 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { FincaProvider } from '../../providers/finca/finca';
-import { DescripcionActividadPage } from '../descripcion-actividad/descripcion-actividad';
-import { AgregarActividadPage } from '../agregar-actividad/agregar-actividad';
-
+import { Component } from "@angular/core";
+import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { FincaProvider } from "../../providers/finca/finca";
+import { DescripcionActividadPage } from "../descripcion-actividad/descripcion-actividad";
+import { AgregarActividadPage } from "../agregar-actividad/agregar-actividad";
 
 @IonicPage()
 @Component({
-  selector: 'page-gestionar-actividad',
-  templateUrl: 'gestionar-actividad.html',
+  selector: "page-gestionar-actividad",
+  templateUrl: "gestionar-actividad.html"
 })
 export class GestionarActividadPage {
   public actividades;
+  public actividades1;
   public finca;
-  constructor(public navCtrl: NavController,
-              public navParams: NavParams,
-              private _fincaService: FincaProvider) {
-                this.getActividades();
-                this.finca = this._fincaService.getIdFinca();
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private _fincaService: FincaProvider
+  ) {
+    this.getActividades();
+    this.finca = this._fincaService.getIdFinca();
   }
 
-  getActividades(){
-    this._fincaService.getActividades().subscribe(res => {
-      this.actividades = res.result;
-      console.log(this.actividades);
-      }, e => {
+  getActividades() {
+    this._fincaService.getActividades().subscribe(
+      res => {
+        this.actividades = res.result;
+      },
+      e => {
         console.log(e);
-      });
+      }
+    );
+    this._fincaService.getActividadesInactivas().subscribe(
+      res => {
+        this.actividades1 = res.result;
+      },
+      e => {
+        console.log(e);
+      }
+    );
   }
 
-  irDescripcion(id){
+  irDescripcion(id) {
     this._fincaService.setIdActividad(id);
     this.navCtrl.push(DescripcionActividadPage);
   }
 
-  agregar(){
+  agregar() {
     this.navCtrl.push(AgregarActividadPage);
   }
 
-  ionViewDidEnter(){
+  ionViewDidEnter() {
     this.getActividades();
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad GestionarActividadPage');
+    console.log("ionViewDidLoad GestionarActividadPage");
   }
-
 }

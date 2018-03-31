@@ -11,20 +11,37 @@ import { EditarFincaPage } from '../editar-finca/editar-finca';
 export class DescripcionFincaPage {
 
   public descripcion:any;
+  public descripcion1:any;
+  public empleado:any;
+  public idEmpleado:any;
+
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private _fincaService: FincaProvider) {
                 this.getDescripcion();
+                /* this.getEmpleado(); */
   }
+
 
   getDescripcion(){
     this._fincaService.getFincaDesc().subscribe(res => {
       this.descripcion = res.result;
-      console.log(this.descripcion);
+      this.idEmpleado = res.result[0].trabajador_encargado;
+      this.getEmpleado(this.idEmpleado);
       }, e => {
         console.log(e);
       });
-      return this.descripcion;
+    
+      return this.descripcion,this.idEmpleado, this.empleado;
+  }
+
+  getEmpleado(idEmpleado){
+    this._fincaService.getEmpleadoDesc1(idEmpleado).subscribe(res => {
+      this.empleado = res.result[0].nombre_emple;
+      }, e => {
+        console.log(e);
+      });
+      return this.empleado;
   }
 
   editar(){
@@ -34,6 +51,8 @@ export class DescripcionFincaPage {
 
   ionViewDidEnter(){
     this.getDescripcion();
+    /* this.getEmpleado(); */
+
   }
 
   ionViewDidLoad() {

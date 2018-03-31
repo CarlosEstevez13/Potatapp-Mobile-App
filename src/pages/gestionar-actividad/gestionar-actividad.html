@@ -11,11 +11,21 @@
 
     <ion-item-group>
       <ion-item-divider color="light">
-        <h1> Gestionar Actividades</h1>
+        <h1> Activas</h1>
       </ion-item-divider>
       <ion-item *ngFor="let actividad of actividades">
         {{actividad.nombre_activi | uppercase}}
-        <button ion-button outline item-right (click)="irDescripcion(actividad.id_activi)">Ver</button>
+        <button ion-button color="secondary" item-right (click)="irDescripcion(actividad.id_activi)">Ver</button>
+      </ion-item>
+    </ion-item-group>
+
+    <ion-item-group>
+      <ion-item-divider color="light">
+        <h1> Inactivas</h1>
+      </ion-item-divider>
+      <ion-item *ngFor="let actividad of actividades1">
+        {{actividad.nombre_activi | uppercase}}
+        <button ion-button color="secondary" item-right (click)="irDescripcion(actividad.id_activi)">Ver</button>
       </ion-item>
     </ion-item-group>
 

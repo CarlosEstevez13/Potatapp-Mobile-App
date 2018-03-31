@@ -1,14 +1,14 @@
 webpackJsonp([8],{
 
-/***/ 287:
+/***/ 289:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DescripcionActividadPageModule", function() { return DescripcionActividadPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DescripcionEmpleadoPageModule", function() { return DescripcionEmpleadoPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__descripcion_actividad__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__descripcion_empleado__ = __webpack_require__(104);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var DescripcionActividadPageModule = /** @class */ (function () {
-    function DescripcionActividadPageModule() {
+var DescripcionEmpleadoPageModule = /** @class */ (function () {
+    function DescripcionEmpleadoPageModule() {
     }
-    DescripcionActividadPageModule = __decorate([
+    DescripcionEmpleadoPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__descripcion_actividad__["a" /* DescripcionActividadPage */],
+                __WEBPACK_IMPORTED_MODULE_2__descripcion_empleado__["a" /* DescripcionEmpleadoPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__descripcion_actividad__["a" /* DescripcionActividadPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__descripcion_empleado__["a" /* DescripcionEmpleadoPage */]),
             ],
         })
-    ], DescripcionActividadPageModule);
-    return DescripcionActividadPageModule;
+    ], DescripcionEmpleadoPageModule);
+    return DescripcionEmpleadoPageModule;
 }());
 
-//# sourceMappingURL=descripcion-actividad.module.js.map
+//# sourceMappingURL=descripcion-empleado.module.js.map
 
 /***/ })
 

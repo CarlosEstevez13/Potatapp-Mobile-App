@@ -35,10 +35,8 @@ export class AgregarActividadPage {
 
   guardar() {
     if(this.estado === true){
-      console.log('if 1');
       this.estado_activi = '1';
     }else{
-      console.log('if 0');
       this.estado_activi = '0';
     }
     this.descripcion = {
@@ -49,10 +47,8 @@ export class AgregarActividadPage {
       fecha_activi: this.fecha_activi,
       num_jornales: this.num_jornales
     };
-    console.log(this.descripcion);
     this._fincaService.postActividad(this.descripcion).subscribe(
       res => {
-        console.log(res);
         if (!res) {
           this.error = true;
         }else{
@@ -63,7 +59,6 @@ export class AgregarActividadPage {
         if(e){
           this.error = true;
         }
-        console.log(e);
       }
     );
   }

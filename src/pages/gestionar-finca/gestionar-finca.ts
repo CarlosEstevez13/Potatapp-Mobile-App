@@ -28,7 +28,6 @@ export class GestionarFincaPage {
   getFincas(){
     this._fincasService.getFincas().subscribe(res => {
       this.fincas = res.result;
-      console.log(this.fincas);
       }, e => {
         console.log(e);
       });
